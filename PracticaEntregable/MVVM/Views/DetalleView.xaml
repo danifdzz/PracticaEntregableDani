@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticaEntregable.MVVM.Views.DetalleView"
+             Title="Detalles de la Tarea">
+
+    <StackLayout Padding="20">
+        <Label Text="Título" />
+        <Entry Text="{Binding Tarea.titulo}" />
+
+        <CheckBox IsChecked="{Binding Tarea.hecha}" Grid.Column="2"/>
+        <Label Text="Importancia" />
+        <Label Text="{Binding Tarea.importancia}" />
+        <Label Text="Cambiar Importancia" FontAttributes="Bold" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Baja" Command="{Binding CambiarImportanciaCommand}" CommandParameter="baja" />
+            <Button Text="Media" Command="{Binding CambiarImportanciaCommand}" CommandParameter="media" />
+            <Button Text="Alta" Command="{Binding CambiarImportanciaCommand}" CommandParameter="alta" />
+        </StackLayout>
+        <Label Text="Fecha Límite" />
+        <DatePicker Date="{Binding Tarea.fechaLimite}" />
+        <Button Text="Guardar" Command="{Binding GuardarCommand}" />
+        <Button Text="Eliminar Tarea"
+            Command="{Binding EliminarTareaCommand}"
+            BackgroundColor="Black"
+            TextColor="White"
+            Margin="10,20,10,0" />
+    </StackLayout>
+</ContentPage>
